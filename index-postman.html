@@ -17,8 +17,8 @@
 	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.5.0/css/perfect-scrollbar.css">
 	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="https://raw.githack.com/ivy00johns/POSTMAN_Tables/master/css/util.css">
-	<link rel="stylesheet" type="text/css" href="https://raw.githack.com/ivy00johns/POSTMAN_Tables/master/css/main.css">
+	<link rel="stylesheet" type="text/css" href="https://rawcdn.githack.com/ivy00johns/POSTMAN_Tables/2858d8a32371bc5e823284452575bebbddde46fa/css/util.css">
+	<link rel="stylesheet" type="text/css" href="https://rawcdn.githack.com/ivy00johns/POSTMAN_Tables/2858d8a32371bc5e823284452575bebbddde46fa/css/main.css">
 	<!--===============================================================================================-->
 </head>
 
@@ -30,7 +30,7 @@
 					<table class="tftable" border="1">
 						<thead>
 							<tr class="table100-head">
-								<th class="column2">Commit ID</th>
+								<th class="column2 column_padding">Commit ID</th>
 								<th class="column2">Author Name</th>
 								<th class="column2">Authored Date</th>
 								<th class="column2">Committed Name</th>
@@ -40,13 +40,13 @@
 								<th class="column2">Edited</th>
 								<th class="column2">Deleted</th>
 								<th class="column2">URL</th>
-								<th class="column2">Remote URL</th>
+								<th class="column2 column_padding">Remote URL</th>
 							</tr>
 						</thead>
 						<tbody>
 							{{#each response.value}}
 								<tr id=row_{{@key}}">
-									<td id={{@key}} class="column2">{{commitId}}</td>
+									<td id={{@key}} class="column2 column_padding">{{commitId}}</td>
 									<td class="column2">{{author.name}}</td>
 									<td class="column2">{{author.date}}</td>
 									<td class="column2">{{committer.name}}</td>
@@ -58,7 +58,7 @@
 									<td class="column2">
 										<a target="_blank" href="{{url}}">Commit URL</a>
 									</td>
-									<td class="column2">
+									<td class="column2 column_padding">
 										<a target="_blank" href="{{remoteUrl}}">Commit Remote URL</a>
 									</td>
 								</tr>
