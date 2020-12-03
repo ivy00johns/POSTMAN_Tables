@@ -29,42 +29,48 @@
 				<div class="table100">
 					<table id="mainTable" class="tftable" border="1">
 						<thead>
-						<tr class="table100-head">
-							<th onclick="sortTable(0)" class="column2 column_padding">#</th>
-							<th onclick="sortTable(1)" class="column2">Commit ID</th>
-							<th onclick="sortTable(2)" class="column2">Author Name</th>
-							<th onclick="sortTable(3)" class="column2">Authored Date</th>
-							<th onclick="sortTable(4)" class="column2">Committed Name</th>
-							<th onclick="sortTable(5)" class="column2">Committed Date</th>
-							<th onclick="sortTable(6)" class="column2">Comment</th>
-							<th onclick="sortTable(7)" class="column2">Added</th>
-							<th onclick="sortTable(8)" class="column2">Edited</th>
-							<th onclick="sortTable(9)" class="column2">Deleted</th>
-							<th class="column2">URL</th>
-							<th class="column2 column_padding">Remote URL</th>
-						</tr>
+							<tr class="table100-head">
+								<th onclick="sortTable(0)" class="column2 column_padding">#</th>
+								<th onclick="sortTable(1)" class="column2">Commit ID</th>
+								<th onclick="sortTable(2)" class="column2">Author Name</th>
+								<th onclick="sortTable(3)" class="column2">Authored Date</th>
+								<th onclick="sortTable(4)" class="column2">Committed Name</th>
+								<th onclick="sortTable(5)" class="column2">Committed Date</th>
+								<th onclick="sortTable(6)" class="column2">Comment</th>
+								<th onclick="sortTable(7)" class="column2">Added</th>
+								<th onclick="sortTable(8)" class="column2">Edited</th>
+								<th onclick="sortTable(9)" class="column2">Deleted</th>
+								<th class="column2">URL</th>
+								<th class="column2 column_padding">Remote URL</th>
+							</tr>
 						</thead>
 						<tbody>
-						{{#each response.value}}
-						<tr id=row_{{@key}}">
-							<td id={{@key}} class="column2 column_padding">{{@key}}</td>
-							<td class="column2">{{commitId}}</td>
-							<td class="column2">{{author.name}}</td>
-							<td class="column2">{{author.date}}</td>
-							<td class="column2">{{committer.name}}</td>
-							<td class="column2">{{committer.date}}</td>
-							<td class="column2">{{comment}}</td>
-							<th class="column2">{{changeCounts.Add}}</th>
-							<th class="column2">{{changeCounts.Edit}}</th>
-							<th class="column2">{{changeCounts.Delete}}</th>
-							<td class="column2">
-								<a target="_blank" href="{{url}}">Commit URL</a>
-							</td>
-							<td class="column2 column_padding">
-								<a target="_blank" href="{{remoteUrl}}">Commit Remote URL</a>
-							</td>
-						</tr>
-						{{/each}}
+							{{#each response.value}}
+							<tr id=row_{{@key}}">
+								<td id={{@key}} class="column2 column_padding">{{@key}}</td>
+								<td class="column2">{{commitId}}</td>
+								<td class="column2">{{author.name}}</td>
+								<td class="column2">{{author.date}}</td>
+								<td class="column2">{{committer.name}}</td>
+								<td class="column2">{{committer.date}}</td>
+								<td class="column2">{{comment}}</td>
+								<th class="column2">{{changeCounts.Add}}</th>
+								<th class="column2">{{changeCounts.Edit}}</th>
+								<th class="column2">{{changeCounts.Delete}}</th>
+								<td class="column2">
+									<a onclick="copyToClipboard('.commit_url_{{@key}}')" title="Click to Copy URL">
+										<p>Commit URL</p>
+									</a>
+									<input type="text" class="commit_url_{{@key}}" style="display: none;" value="{{url}}">
+								</td>
+								<td class="column2 column_padding">
+									<a onclick="copyToClipboard('.commit_remote_url_{{@key}}')" title="Click to Copy URL">
+										<p>Commit Remote URL</p>
+									</a>
+									<input type="text" class="commit_remote_url_{{@key}}" style="display: none;" value="{{url}}">
+								</td>
+							</tr>
+							{{/each}}
 						</tbody>
 					</table>
 				</div>
@@ -80,6 +86,6 @@
 	<!--===============================================================================================-->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 	<!--===============================================================================================-->
-	<script src="https://raw.githack.com/ivy00johns/POSTMAN_Tables/master/js/main.js"></script>
+	<script src="https://rawcdn.githack.com/ivy00johns/POSTMAN_Tables/4ab3d97f0057b20436c5057a534b75bbfb1460b5/js/main.js"></script>
 </body>
 </html>
