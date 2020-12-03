@@ -17,8 +17,8 @@
 	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.5.0/css/perfect-scrollbar.css">
 	<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="https://rawcdn.githack.com/ivy00johns/POSTMAN_Tables/2858d8a32371bc5e823284452575bebbddde46fa/css/util.css">
-	<link rel="stylesheet" type="text/css" href="https://rawcdn.githack.com/ivy00johns/POSTMAN_Tables/2858d8a32371bc5e823284452575bebbddde46fa/css/main.css">
+	<link rel="stylesheet" type="text/css" href="https://rawcdn.githack.com/ivy00johns/POSTMAN_Tables/1ea508e6633729ba0d9e9ed817e9597c1fc204a5/css/util.css">
+	<link rel="stylesheet" type="text/css" href="https://rawcdn.githack.com/ivy00johns/POSTMAN_Tables/194f45bd4b2a9a8ecb422b7d279c8357f759e330/css/main.css">
 	<!--===============================================================================================-->
 </head>
 
@@ -27,42 +27,44 @@
 		<div class="container-table100">
 			<div class="wrap-table100">
 				<div class="table100">
-					<table class="tftable" border="1">
+					<table id="mainTable" class="tftable" border="1">
 						<thead>
-							<tr class="table100-head">
-								<th class="column2 column_padding">Commit ID</th>
-								<th class="column2">Author Name</th>
-								<th class="column2">Authored Date</th>
-								<th class="column2">Committed Name</th>
-								<th class="column2">Committed Date</th>
-								<th class="column2">Comment</th>
-								<th class="column2">Added</th>
-								<th class="column2">Edited</th>
-								<th class="column2">Deleted</th>
-								<th class="column2">URL</th>
-								<th class="column2 column_padding">Remote URL</th>
-							</tr>
+						<tr class="table100-head">
+							<th onclick="sortTable(0)" class="column2 column_padding">#</th>
+							<th onclick="sortTable(1)" class="column2">Commit ID</th>
+							<th onclick="sortTable(2)" class="column2">Author Name</th>
+							<th onclick="sortTable(3)" class="column2">Authored Date</th>
+							<th onclick="sortTable(4)" class="column2">Committed Name</th>
+							<th onclick="sortTable(5)" class="column2">Committed Date</th>
+							<th onclick="sortTable(6)" class="column2">Comment</th>
+							<th onclick="sortTable(7)" class="column2">Added</th>
+							<th onclick="sortTable(8)" class="column2">Edited</th>
+							<th onclick="sortTable(9)" class="column2">Deleted</th>
+							<th class="column2">URL</th>
+							<th class="column2 column_padding">Remote URL</th>
+						</tr>
 						</thead>
 						<tbody>
-							{{#each response.value}}
-								<tr id=row_{{@key}}">
-									<td id={{@key}} class="column2 column_padding">{{commitId}}</td>
-									<td class="column2">{{author.name}}</td>
-									<td class="column2">{{author.date}}</td>
-									<td class="column2">{{committer.name}}</td>
-									<td class="column2">{{committer.date}}</td>
-									<td class="column2">{{comment}}</td>
-									<th class="column2">{{changeCounts.Add}}</th>
-									<th class="column2">{{changeCounts.Edit}}</th>
-									<th class="column2">{{changeCounts.Delete}}</th>
-									<td class="column2">
-										<a target="_blank" href="{{url}}">Commit URL</a>
-									</td>
-									<td class="column2 column_padding">
-										<a target="_blank" href="{{remoteUrl}}">Commit Remote URL</a>
-									</td>
-								</tr>
-							{{/each}}
+						{{#each response.value}}
+						<tr id=row_{{@key}}">
+							<td id={{@key}} class="column2 column_padding">{{@key}}</td>
+							<td class="column2">{{commitId}}</td>
+							<td class="column2">{{author.name}}</td>
+							<td class="column2">{{author.date}}</td>
+							<td class="column2">{{committer.name}}</td>
+							<td class="column2">{{committer.date}}</td>
+							<td class="column2">{{comment}}</td>
+							<th class="column2">{{changeCounts.Add}}</th>
+							<th class="column2">{{changeCounts.Edit}}</th>
+							<th class="column2">{{changeCounts.Delete}}</th>
+							<td class="column2">
+								<a target="_blank" href="{{url}}">Commit URL</a>
+							</td>
+							<td class="column2 column_padding">
+								<a target="_blank" href="{{remoteUrl}}">Commit Remote URL</a>
+							</td>
+						</tr>
+						{{/each}}
 						</tbody>
 					</table>
 				</div>
