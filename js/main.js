@@ -38,3 +38,13 @@ function sortTable(index) {
         }
     }
 }
+
+function copyToClipboard(selector) {
+    let copyText = document.querySelector(selector);
+
+    copyText.select();
+    copyText.setSelectionRange(0, 99999);
+
+    document.execCommand("copy");
+    console.log("Copied the text: " + copyText.value);
+}
